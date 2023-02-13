@@ -1,6 +1,19 @@
 name: Build and push
 
 on:
+  workflow_call:
+    inputs:
+      go_version:
+        type: string
+        required: false
+        default: "1"
+        description: "version of go (default = 1.0)"
+      hugo_version:
+        type: string
+        required: false
+        default: "v0.110.0"
+        description: "version of go (default = v0.110.0)"
+
   workflow_dispatch:
     inputs:
       go_version:
