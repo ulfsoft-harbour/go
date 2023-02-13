@@ -83,7 +83,7 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/${{ inputs.target }}:${{ env.GO_VERSION }}-${{ env.HUGO_VERSION }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/hugo-${{ env.HUGO_VERSION }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             GO_VERSION=${{ env.GO_VERSION }}
