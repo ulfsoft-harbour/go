@@ -1,29 +1,15 @@
 name: Build and push
 
 on:
-  workflow_call:
-    inputs:
-      go_version:
-        type: string
-        required: false
-        default: "1"
-        description: "version of go (default = 1.0)"
-      hugo_version:
-        type: string
-        required: false
-        default: "v0.110.0"
-        description: "version of go (default = v0.110.0)"
-
   workflow_dispatch:
     inputs:
       go_version:
         type: string
-        required: false
-        default: "1"
+        required: true
         description: "version of go (default = 1.0)"
       hugo_version:
         type: string
-        required: false
+        required: true
         default: "v0.110.0"
         description: "version of go (default = v0.110.0)"
 
@@ -51,8 +37,8 @@ jobs:
     steps:
       - name: Setup environment
         run: |
-          echo "GO_VERSION=${{ inputs.go_version }}" >> $GITHUB_ENV
-          echo "HUGO_VERSION=${{ inputs.hugo_version }}" >> $GITHUB_ENV
+          echo "GO_VERSION=${GO_VERSION:-1}" >> $GITHUB_ENV
+          echo "HUGO_VERSION=${HUGO_VERSION:-v0.101.0}" >> $GITHUB_ENV
 
       - name: Checkout repository
         uses: actions/checkout@v3
