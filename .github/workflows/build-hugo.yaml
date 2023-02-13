@@ -23,7 +23,7 @@ on:
       - "docs/*"
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/dotnet
+  IMAGE_NAME: ${{ github.repository_owner }}/go
 
 jobs:
   build-and-push:
